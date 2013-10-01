@@ -44,6 +44,6 @@
                                            (funcall color-fn "\\1")))
 
 (output-as-html (format nil "<pre>~a</pre>"
-                        (replace-pair "[" "]" #'green
-                                      (replace-pair "{" "}" #'red *bracket-sample*)))
+                        (replace-pair "{" "}" #'green
+                                      (replace-pair "[" "]" #'red *bracket-sample*)))
                 "tmp.html")
