@@ -41,12 +41,15 @@
 (use-package :cl-ppcre)
 
 (defun replace-pair (start end color-fn codestr)
-  (regex-replace-all `(:sequence
-                        ,start (:register
-                                 ,(:non-greedy-repetition 0 nil :everything))
-                        ,end)
-                     (format nil "~a" codestr)
-                     (funcall color-fn "\\1")))
+  (regex-replace-all
+    (create-scanner `(:sequence
+                       (:sequence ,start (:greedy-repetition 0 nil :whitespace-char-class))
+                       (:register
+                         (:non-greedy-repetition 0 nil :everything))
+                       (:sequence (:greedy-repetition 0 nil :whitespace-char-class) ,end))
+                    :single-line-mode t)
+    (format nil "~a" codestr)
+    (funcall color-fn "\\1")))
 
 (output-as-html (format nil "<pre>~a</pre>"
                         (replace-pair "{" "}" #'green
