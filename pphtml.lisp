@@ -31,8 +31,8 @@
 
 ;;; I have no idea to dicretly utilize the pretty printed string.
 ;;; It's not a beautiful idea, but let me break the structure.
-;;; Added nodes are marked by brackets and removed nodes are marked
-;;; by braces.
+;;; Added nodes are marked by braces and removed nodes are marked
+;;; by brackets.
 (defparameter *bracket-sample*
   '(defun iota (n [&optional (start 0)])
      (loop for i from {0} [start] upto (1- n) collect i)))
