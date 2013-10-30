@@ -15,19 +15,19 @@
   (format nil "<pre>~%~a~%</pre>" (format nil "~a" *iota0*))
   "tmp.html")
 
-(defun colored (r g b str)
+(defun color (r g b str)
   (format nil "<font color=\"~2,'0x~2,'0x~2,'0x\">~a</font>" r g b str))
 
-(colored 0 255 80 "a")
+(color 0 255 80 "a")
 
 (defun white (str)
-  (colored 255 255 255 str))
+  (color 255 255 255 str))
 
 (defun red (str)
-  (colored 255 0 0 str))
+  (color 255 0 0 str))
 
 (defun green (str)
-  (colored 0 255 0 str))
+  (color 0 255 0 str))
 
 ;;; I have no idea to dicretly utilize the pretty printed string.
 ;;; It's not a beautiful idea, but let me break the structure.
