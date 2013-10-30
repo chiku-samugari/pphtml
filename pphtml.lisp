@@ -40,7 +40,7 @@
 (ql:quickload :cl-ppcre)
 (use-package :cl-ppcre)
 
-(defun replace-pair (start end color-fn codestr)
+(defun pair-coloring (start end color-fn code)
   (regex-replace-all
     (create-scanner `(:sequence
                        (:sequence ,start (:greedy-repetition 0 nil :whitespace-char-class))
@@ -48,10 +48,10 @@
                          (:non-greedy-repetition 0 nil :everything))
                        (:sequence (:greedy-repetition 0 nil :whitespace-char-class) ,end))
                     :single-line-mode t)
-    (format nil "~a" codestr)
+    (format nil "~a" code)
     (funcall color-fn "\\1")))
 
 (output-as-html (format nil "<pre>~a</pre>"
-                        (replace-pair "{" "}" #'green
-                                      (replace-pair "[" "]" #'red *bracket-sample*)))
+                        (pair-coloring "{" "}" #'green
+                                      (pair-coloring "[" "]" #'red *bracket-sample*)))
                 "tmp.html")
