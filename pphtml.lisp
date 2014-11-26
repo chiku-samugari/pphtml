@@ -29,6 +29,9 @@
 (defun green (str)
   (color 0 255 0 str))
 
+(defun yellow (str)
+  (color 255 255 0 str))
+
 ;;; I have no idea to dicretly utilize the pretty printed string.
 ;;; It's not a beautiful idea, but let me break the structure.
 ;;; Added nodes are marked by braces and removed nodes are marked
