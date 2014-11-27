@@ -1,6 +1,6 @@
 (in-package :cl-user)
 
 (defpackage :pphtml
-  (:use :cl :cl-ppcre :chiku.util)
+  (:use :cl :cl-ppcre)
   (:export :output-as-html :color :pair-coloring
            :white :red :green :yellow))
