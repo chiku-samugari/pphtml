@@ -12,7 +12,7 @@
   :author "Takehiko Nawata"
   :license "MIT License"
   :description "Pretty printing output as HTML"
-  :long-description "Pretty printing colored by pair replication and output as HTML"
+  :long-description "Pretty printing colored by pair replacement and output as an HTML."
   :serial t
   :components ((:file "packages")
               (:file "pphtml"))
